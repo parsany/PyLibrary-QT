@@ -124,7 +124,7 @@ class MainWindow(QWidget):
         self.data = load_data()
         self.current_tag = "All"
         self.current_amount_type = "All"
-        self.excluded_tags = ["leisure"]
+        self.excluded_tags = []
         self.sidebar_open = False
         self.init_ui()
 
@@ -244,7 +244,6 @@ class MainWindow(QWidget):
         """
         self.current_tag = tag
         self.current_amount_type = "All"
-        self.excluded_tags = [] if tag == "leisure" else ["leisure"]
         self.refresh_ui()
 
     def filter_by_type(self, amount_type):
@@ -270,7 +269,7 @@ class MainWindow(QWidget):
         for entry_data in self.data:
             if ((self.current_tag == "All" or entry_data['tag_task'] == self.current_tag) and
                 (self.current_amount_type == "All" or entry_data['amount_type'] == self.current_amount_type) and
-                    (self.current_tag == "leisure" or self.current_amount_type != "All" or entry_data['tag_task'] not in self.excluded_tags)):
+                    (self.current_amount_type != "All" or entry_data['tag_task'] not in self.excluded_tags)):
                 filtered_entries.append(Entry(**entry_data))
 
         sorted_entries = sorted(
