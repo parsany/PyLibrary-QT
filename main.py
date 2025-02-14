@@ -116,7 +116,7 @@ class Entry:
 
 class MainWindow(QWidget):
     """
-    The main window of the Progress Library Tracker application.
+    The main window of the Library Tracker application.
     """
 
     def __init__(self):
@@ -132,7 +132,7 @@ class MainWindow(QWidget):
         """
         Set up the user interface.
         """
-        self.setWindowTitle("Progress Library Tracker")
+        self.setWindowTitle("Library Tracker")
         self.setGeometry(100, 100, 1200, 800)
 
         self.main_layout = QHBoxLayout(self)
